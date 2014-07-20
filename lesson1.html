@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>tttype</title>
+<link rel="stylesheet" type="text/css" href="css/normalize.css">
+<link rel="stylesheet" type="text/css" href="css/animate.css">
+<link rel="stylesheet" type="text/css" href="css/main.css">
+
+</head>
+<body>
+<div id="start" class="animated bounceIn">Press "Enter" to get start.</div>
+<div id="three">3</div>
+<div id="two">2</div>
+<div id="one">1</div>
+<div id="content" class="animated bounceInDown"></div>
+<div id="stat" class="animated bounceInUp">
+	<div class="previouslesson"><a href="index.html">Menu</a></div>
+	<div class="refreshlesson"><a href="javascript:location.reload();">Replay this lesson</a></div>
+	<div class="nextlesson"><a href="lesson2.html">Next lesson</a></div>
+</div>
+
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/flowtype.js"></script>
+<script type="text/javascript" src="js/prefixfree.js"></script>
+<script type="text/javascript" src="js/shuffle.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+<script type="text/javascript">
+var arr = ['has', 'dash', 'lag', 'all', 'ads', 'alfa', 'hash', 'glad', 'add', 'lag', 'fall', 'slash', 'salsa', 'half', 'flag', 'had', 'flask', 'sad', 'gall', 'hall', 'hassl'];
+shuffle(arr);
+arr = arr.slice(0, 21);
+arr = arr.join(" ");
+$("#content").append(arr);
+
+/*
+.flowtype({
+	minimum : 500,
+	maximum : 1200,
+	minFont : 12,
+	maxFont : 40,
+	fontRatio : 10
+});
+*/
+</script>
+</body>
+</html>
