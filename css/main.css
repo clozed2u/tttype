@@ -132,7 +132,6 @@ body {
 	100% {margin-left: -1000px;}
 }
 .front {
-	/*background: url(../images/background.png) no-repeat center center fixed;*/
 	background-image: url(../images/background.png);
 	background-repeat: no-repeat;
 	background-position: center center;
@@ -155,7 +154,7 @@ body {
 	color: rgba(255,255,255,1);
 	background: rgba(221,162,76,1);
 	background: rgba(236, 240, 241,1);
-	border: 2px dashed rgba(76,54,6,1);
+	border: 4px dashed rgba(76,54,6,1);
 	margin: 20px auto 0;
 }
 #front [role=banner] h1 {
@@ -182,14 +181,28 @@ body {
 	text-align: center;
 }
 #front .choose {
-	width: 24%;
+	font-weight: bold;
+	width: 200px;
+	margin: 10px;
 	display: inline-block;
-	height: 60px;
+	color: rgba(80,27,0,1);
+	border: 1px dashed rgba(80,27,0,1);
+	background: rgba(255,255,126,1);
+}
+#front .choose a:link, #front .choose a:visited, #front .choose a:hover, #front .choose a:active {
+	color: rgba(80,27,0,1);
+	text-decoration: none;
 }
 
 /* stuff for lesson page */
 #lesson {
 	width: 960px;
+}
+#lesson img {
+	width: 60%;
+	height: auto;
+	display: block;
+	margin: 0 auto;
 }
 #lesson #start,#lesson #content,#lesson #stat,#lesson #three,#lesson #two,#lesson #one {
 	text-align: center;
