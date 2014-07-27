@@ -83,7 +83,7 @@ $(document).ready(function() {
                 correctChars++;
 
             } else if (input !== textcontent[inputNumber].charCodeAt(16) && textcontent[inputNumber].charCodeAt(16) === 32) {
-                textcontent[inputNumber] = "<span class='wrong space'>" + textcontent[inputNumber] + "</span>";
+                textcontent[inputNumber] = "<span class='wrong'>" + textcontent[inputNumber] + "</span>";
                 $('#content').html(textcontent.join(''));
                 wrongChars++;
             } else {
