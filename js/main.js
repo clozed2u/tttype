@@ -137,11 +137,14 @@ $(document).ready(function() {
                 console.log("total " + totalChars);
                 console.log("periodtime " + periodtime);
                 console.log("wpm " + wpm);
-                $('#stat').prepend("ความแม่นยำ: " + accuracy + "%<br>จำนวนคำต่อนาที: " + wpm + "<br>เวลาที่ใช้: " + periodtime + " วินาที");
                 $('#content').fadeOut('fast', function() {
                     $('#stat').show();
                     if (wpm > expectwpm && accuracy > expectAccuracy) {
-                        $('.nextlesson').show();
+                        $('#stat').prepend("<div id=\"statinfo\" class=\"win\">" + "ความแม่นยำ: " + accuracy + "%<br>จำนวนคำต่อนาที: " + wpm + "<br>เวลาที่ใช้: " + periodtime + " วินาที" + "</div>");
+                        $('.next').show();
+                    } else {
+                        $('#stat').prepend("<div id=\"statinfo\" class=\"lose\">" + "ความแม่นยำ: " + accuracy + "%<br>จำนวนคำต่อนาที: " + wpm + "<br>เวลาที่ใช้: " + periodtime + " วินาที" + "</div>");
+                        $('.retry').show();
                     }
                 });
                 $(window).off('keypress');

@@ -117,7 +117,6 @@ body {
 	opacity: 0.8;
 	-webkit-animation: moveclouds 20s linear infinite;
 	-moz-animation: moveclouds 20s linear infinite;
-	-o-animation: moveclouds 20s linear infinite;
 }
 @-webkit-keyframes moveclouds {
 	0% {margin-left: 1000px;}
@@ -182,21 +181,75 @@ body {
 }
 #front .choose {
 	font-weight: bold;
-	width: 200px;
+	width: 120px;
 	margin: 10px;
 	display: inline-block;
 	color: rgba(80,27,0,1);
-	border: 1px dashed rgba(80,27,0,1);
-	background: rgba(255,255,126,1);
+}
+.choose img {
+	width: 100%;
+	height: auto;
+	-webkit-transition: all .1s ease-in-out;
+	-moz-transition: all .1s ease-in-out;
+	-ms-transition: all .1s ease-in-out;
+	transition: all .1s ease-in-out;
+}
+.choose img:hover {
+	-webkit-transform: scale(1.2);
+	-moz-transform: scale(1.2);
+	-ms-transform: scale(1.2);
+	transform: scale(1.2);
 }
 #front .choose a:link, #front .choose a:visited, #front .choose a:hover, #front .choose a:active {
 	color: rgba(80,27,0,1);
 	text-decoration: none;
 }
+#howto {
+	width: 200px;
+	position: fixed;
+}
+@keyframes sway  {
+	0% { transform: rotate(2deg); }
+	50% { transform: rotate(-2deg); }
+	100% { transform: rotate(2deg); }
+}
+.object {
+	animation: sway 2.4s infinite;
+	animation-timing-function: ease-in-out;
+	-webkit-transform-origin: top;
+	-moz-transform-origin: top;
+	-ms-transform-origin: top;
+	transform-origin: top;
+}
+.object-shape {
+	display: block;
+	margin: 0;
+	position: relative;
+}
+.object-shape img {
+	width: 100%;
+	height: auto;
+	margin-top: -14px;
+}
+.object-rope {
+	height: 390px;
+	width: 4px;
+	background-color: brown;
+	content:"";
+	display: block;
+	margin-left: 50%;
+}
+.clickable {
+
+}
+.unclickable {
+	pointer-events: none;
+}
 
 /* stuff for lesson page */
 #lesson {
 	width: 960px;
+	background-color: #cce7ff;
 }
 #lesson img {
 	width: 60%;
@@ -209,8 +262,26 @@ body {
 	margin: 40px 0;
 	font-size: 2.5rem;
 }
+#one, #two, #three {
+	font-size: 5rem!important;
+}
 #lesson #content,#lesson #stat,#lesson #three,#lesson #two,#lesson #one {
 	display: none;
+}
+#lesson #statinfo {
+	padding-top: 40px;
+	margin: 0 auto;
+	width: 600px;
+	height: 360px;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	color: #ffffff;
+}
+#statinfo.win {
+	background-image: url('../images/bggood.png');
+}
+#statinfo.lose {
+	background-image: url('../images/bgfail.png');
 }
 #lesson #start {
 	display: block;
@@ -225,11 +296,25 @@ body {
 	max-height: 300px;
 	min-height: 300px;
 }
-#lesson .previouslesson,#lesson .refresh {
+#lesson #navigation {
+	width: 100%;
 	display: block;
+	margin: 0;
+	text-align: center;
 }
-#lesson .nextlesson {
+#lesson .home {
+	display: inline;
+}
+#lesson .next {
 	display: none;
+}
+#lesson .retry {
+	display: none;
+}
+#lesson .menu {
+	display: inline-block;
+	width: 300px;
+	height: 187px;
 }
 #lesson .correct {
 	color: rgba(115,181,38,1);

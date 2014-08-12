@@ -9,49 +9,61 @@
 
 </head>
 <body class="front">
-<div id="front">
-  <div id="clouds">
-    <div class="cloud x1"></div>
-    <div class="cloud x2"></div>
-    <div class="cloud x3"></div>
-    <div class="cloud x4"></div>
-    <div class="cloud x5"></div>
+  <div id="howto">
+    <div class="object">
+      <div class="object-rope"></div>
+      <div class="object-shape"><a href="howto.html"><img src="images/howtoo.png"></a></div>
+      <div class="object-shape"><a href="aboutme.html"><img src="images/aboutme.png"></a></div>
+    </div>
   </div>
-  <header role="banner" class="clear animated swing">
-    <h1><span class="c1">พ</span><span class="c2">ิ</span><span class="c3">ม</span><span class="c4">พ</span><span class="c5">์</span><span class="c6">ไ</span><span class="c7">ท</span><span class="c8">ย</span></h1>
-  </header>
-  <main role="main" class="clear">
-    <div class="choose"><a href="lesson1.html"><span class="buttonchoose">บทที่ 1</span></a></div>
-    <div class="choose"><a href="">บทที่ 2</a></div>
-    <div class="choose"><a href="">บทที่ 3</a></div>
-    <div class="choose"><a href="">บทที่ 4</a></div>
-    <div class="choose"><a href="">บทที่ 5</a></div>
-    <div class="choose"><a href="">บทที่ 6</a></div>
-    <div class="choose"><a href="">บทที่ 7</a></div>
-    <div class="choose"><a href="">บทที่ 8</a></div>
-    <div class="choose"><a href="">บทที่ 9</a></div>
-    <div class="choose"><a href="">บทที่ 10</a></div>
-    <div class="choose"><a href="">บทที่ 11</a></div>
-    <div class="choose"><a href="">บทที่ 12</a></div>
-    <div class="choose"><a href="">บทที่ 13</a></div>
-    <div class="choose"><a href="">บทที่ 14</a></div>
-    <div class="choose"><a href="">บทที่ 15</a></div>
-    <div class="choose"><a href="">บทที่ 16</a></div>
-    <div class="choose"><a href="">บทที่ 17</a></div>
-    <div class="choose"><a href="">บทที่ 18</a></div>
-    <div class="choose"><a href="">บทที่ 19</a></div>
-    <div class="choose"><a href="">บทที่ 20</a></div>
-  </main>
-  <footer role="contentinfo" class="clear">
-  </footer>
+  <div id="front">
+    <div id="clouds">
+      <div class="cloud x1"></div>
+      <div class="cloud x2"></div>
+      <div class="cloud x3"></div>
+      <div class="cloud x4"></div>
+      <div class="cloud x5"></div>
+    </div>
+    <header role="banner" class="clear animated swing">
+      <h1><span class="c1">พ</span><span class="c2">ิ</span><span class="c3">ม</span><span class="c4">พ</span><span class="c5">์</span><span class="c6">ไ</span><span class="c7">ท</span><span class="c8">ย</span></h1>
+    </header>
+    <main role="main" class="clear">
+      <div class="choose clickable"><a href="lesson1.html"><img src="images/button1.png" alt="บทที่ 1"></a></div>
+<!--       <div class="choose"><a href=""><img src="images/button2.png" alt="บทที่ 2"></a></div>
+      <div class="choose"><a href=""><img src="images/button3.png" alt="บทที่ 3"></a></div>
+      <div class="choose"><a href=""><img src="images/button4.png" alt="บทที่ 4"></a></div>
+      <div class="choose"><a href=""><img src="images/button5.png" alt="บทที่ 5"></a></div>
+      <div class="choose"><a href=""><img src="images/button6.png" alt="บทที่ 6"></a></div>
+      <div class="choose"><a href=""><img src="images/button7.png" alt="บทที่ 7"></a></div>
+      <div class="choose"><a href=""><img src="images/button8.png" alt="บทที่ 8"></a></div>
+      <div class="choose"><a href=""><img src="images/button9.png" alt="บทที่ 9"></a></div>
+      <div class="choose"><a href=""><img src="images/button10.png" alt="บทที่ 10"></a></div>
+      <div class="choose"><a href=""><img src="images/button11.png" alt="บทที่ 11"></a></div>
+      <div class="choose"><a href=""><img src="images/button12.png" alt="บทที่ 12"></a></div>
+      <div class="choose"><a href=""><img src="images/button13.png" alt="บทที่ 13"></a></div>
+      <div class="choose"><a href=""><img src="images/button14.png" alt="บทที่ 14"></a></div>
+      <div class="choose"><a href=""><img src="images/button15.png" alt="บทที่ 15"></a></div>
+      <div class="choose"><a href=""><img src="images/button16.png" alt="บทที่ 16"></a></div>
+      <div class="choose"><a href=""><img src="images/button17.png" alt="บทที่ 17"></a></div> -->
+    </main>
+    <footer role="contentinfo" class="clear">
+    </footer>
 
-  <script type="text/javascript" src="js/jquery.js"></script>
-  <script type="text/javascript" src="js/flowtype.js"></script>
-  <script type="text/javascript" src="js/prefixfree.js"></script>
-  <script type="text/javascript" src="js/shuffle.js"></script>
-  <script type="text/javascript" src="js/main.js"></script>
-  <script type="text/javascript">
-  </script>
-</div>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/flowtype.js"></script>
+    <script type="text/javascript" src="js/prefixfree.js"></script>
+    <script type="text/javascript" src="js/shuffle.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript">
+      for (var i = 2; i <= 17; i++) {
+        if (localStorage.getItem('lesson' + i) == 'passed') {
+          $('main').append("<div class='choose clickable'><a href='lesson" + i + ".html'><img src='images/button" + i + ".png' alt='บทที่ " + i + "'></a></div>");
+          console.log(localStorage.getItem('lesson' + i));
+        } else {
+          $('main').append("<div class='choose unclickable'><a href='lesson" + i + ".html'><img src='images/button" + i + ".png' alt='บทที่ " + i + "'></a></div>");
+        }
+      }
+    </script>
+  </div>
 </body>
 </html>

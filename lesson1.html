@@ -9,34 +9,200 @@
 
 </head>
 <body id="lesson">
+  <div id="clouds">
+    <div class="cloud x1"></div>
+    <div class="cloud x2"></div>
+    <div class="cloud x3"></div>
+    <div class="cloud x4"></div>
+    <div class="cloud x5"></div>
+  </div>
   <div id="start" class="animated bounceIn"><img src="images/1.png">กดปุ่ม Enter เพื่อเริ่มพิมพ์</div>
   <div id="three">3</div>
   <div id="two">2</div>
   <div id="one">1</div>
   <div id="content" class="animated bounceInDown"></div>
   <div id="stat" class="animated bounceInUp">
-   <div class="previouslesson"><a href="index.html">เมนู</a></div>
-   <div class="refreshlesson"><a href="javascript:location.reload();">เล่นอีกครั้ง</a></div>
-   <div class="nextlesson"><a href="lesson2.html">บทถัดไป</a></div>
- </div>
+    <div id="navigation">
+      <a class="home" href="index.html"><img src="images/home.png" class="menu"></a>
+      <a class="retry" href="lesson1.html"><img src="images/retry.png" class="menu"></a>
+      <a class="next" href="lesson2.html"><img src="images/next.png" class="menu"></a>
+    </div>
+  </div>
 
- <script type="text/javascript" src="js/jquery.js"></script>
- <script type="text/javascript" src="js/flowtype.js"></script>
- <script type="text/javascript" src="js/prefixfree.js"></script>
- <script type="text/javascript" src="js/shuffle.js"></script>
- <script type="text/javascript" src="js/main.js"></script>
- <script type="text/javascript">
-  var arr = ['ฟาก','หาก','ดาว','สาว','ฟาว','หาด','กาก','สาด','หาว','สกาว','กว่า','ส่า','ฟาด','กาด','ก่า','กา'];
-  shuffle(arr);
-  arr = arr.slice(0, 21);
-  arr = arr.join(" ");
-  $("#content").append(arr).flowtype({
-   minimum : 500,
-   maximum : 1200,
-   minFont : 12,
-   maxFont : 40,
-   fontRatio : 10
- });
+  <script type="text/javascript" src="js/jquery.js"></script>
+  <script type="text/javascript" src="js/flowtype.js"></script>
+  <script type="text/javascript" src="js/prefixfree.js"></script>
+  <script type="text/javascript" src="js/shuffle.js"></script>
+  <!-- <script type="text/javascript" src="js/main.js"></script> -->
+  <script type="text/javascript">
+    var arr = ['ฟาก','หาก','ดาว','สาว','ฟาว','หาด','กาก','สาด','หาว','สกาว','กว่า','ส่า','ฟาด','กาด','ก่า','กา'];
+    shuffle(arr);
+    arr = arr.slice(0, 21);
+    arr = arr.join(" ");
+    $("#content").append(arr).flowtype({
+     minimum : 500,
+     maximum : 1200,
+     minFont : 12,
+     maxFont : 40,
+     fontRatio : 10
+   });
+
+// start app code
+$(document).ready(function() {
+  $('#start').css({
+    left: ($(window).width() - $('#start').outerWidth()) / 2,
+    top: ($(window).height() - $('#start').outerHeight()) / 2
+  });
+  $('#three').css({
+    left: ($(window).width() - $('#three').outerWidth()) / 2,
+    top: ($(window).height() - $('#three').outerHeight()) / 2
+  });
+  $('#two').css({
+    left: ($(window).width() - $('#two').outerWidth()) / 2,
+    top: ($(window).height() - $('#two').outerHeight()) / 2
+  });
+  $('#one').css({
+    left: ($(window).width() - $('#one').outerWidth()) / 2,
+    top: ($(window).height() - $('#one').outerHeight()) / 2
+  });
+  $('#content').css({
+    left: ($(window).width() - $('#content').outerWidth()) / 2,
+    top: ($(window).height() - $('#content').outerHeight()) / 2
+  });
+  $('#stat').css({
+    left: ($(window).width() - $('#stat').outerWidth()) / 2,
+    top: ($(window).height() - $('#stat').outerHeight()) / 2
+  });
+
+  $(document).unbind('keydown').bind('keydown', function(e) {
+    var doPrevent = false;
+
+    if (e.keyCode === 8) {
+      var d = e.srcElement || e.target;
+      if ((d.tagName.toUpperCase() === 'INPUT' && (d.type.toUpperCase() === 'TEXT' || d.type.toUpperCase() === 'PASSWORD' || d.type.toUpperCase() === 'FILE' || d.type.toUpperCase() === 'EMAIL')) || d.tagName.toUpperCase() === 'TEXTAREA') {
+        doPrevent = d.readOnly || d.disabled;
+      } else {
+        doPrevent = true;
+      }
+    }
+
+    if (doPrevent) {
+      e.preventDefault();
+    }
+  });
+
+  $(window).keypress(function(e) {
+
+    if (e.which === 13) {
+      $(document).unbind('keydown').bind('keydown', function(e) {
+        if (e.keyCode === 13 || e.keyCode === 8) {
+          e.preventDefault();
+        }
+      });
+      $('#start').fadeOut('fast', function() {
+        $('#three').fadeIn('500', function() {
+          $(this).fadeOut('500', function() {
+            $('#two').fadeIn('500', function() {
+              $(this).fadeOut('500', function() {
+                $('#one').fadeIn('500', function() {
+                  $(this).fadeOut('500', function() {
+                    $('#content').show();
+                    startgame();
+                    console.log("Start typing!");
+                  });
+                });
+              });
+            });
+          });
+        });
+      });
+    }
+  });
+
+  function startgame() {
+    $(document).unbind('keydown').bind('keydown', function(e) {
+      if (e.keyCode === 13 || e.keyCode === 8) {
+        e.preventDefault();
+      }
+    });
+
+    var starttime = $.now();
+    console.log(starttime);
+    var textcontent = $("#content").text().split("");
+    for (var i = 0; i < textcontent.length; i++) {
+      if (textcontent[i] === " ") {
+        textcontent[i] = "<span class='s'>" + textcontent[i] + "</span>";
+      } else {
+        textcontent[i] = "<span class='n'>" + textcontent[i] + "</span>";
+      }
+    }
+    var allWords = $("#content").text().split(" ");
+
+    var inputNumber = 0,
+    correctChars = 0,
+    wrongChars = 0,
+    totalChars = textcontent.length;
+    defaulttextcontent = textcontent[inputNumber];
+    textcontent[inputNumber] = "<span class='current'>" + textcontent[inputNumber] + "</span>";
+    $('#content').html(textcontent.join(''));
+    $(window).on('keypress', function(e) {
+      var input = parseInt(e.which);
+      console.log(input);
+      console.log(textcontent[inputNumber]);
+      textcontent[inputNumber] = defaulttextcontent;
+
+      if (input === textcontent[inputNumber].charCodeAt(16)) {
+        textcontent[inputNumber] = "<span class='correct'>" + textcontent[inputNumber] + "</span>";
+        $('#content').html(textcontent.join(''));
+        correctChars++;
+
+      } else if (input !== textcontent[inputNumber].charCodeAt(16) && textcontent[inputNumber].charCodeAt(16) === 32) {
+        textcontent[inputNumber] = "<span class='wrong'>" + textcontent[inputNumber] + "</span>";
+        $('#content').html(textcontent.join(''));
+        wrongChars++;
+      } else {
+        textcontent[inputNumber] = "<span class='wrong'>" + textcontent[inputNumber] + "</span>";
+        $('#content').html(textcontent.join(''));
+        wrongChars++;
+      }
+
+      inputNumber++;
+
+      if (inputNumber < textcontent.length) {
+        defaulttextcontent = textcontent[inputNumber];
+        textcontent[inputNumber] = "<span class='current'>" + textcontent[inputNumber] + "</span>";
+        $('#content').html(textcontent.join(''));
+      }
+
+      if (inputNumber == textcontent.length) {
+        var endtime = $.now();
+        var periodtime = ((endtime - starttime) / 1000).toFixed(1);
+        var wpm = ((60 / periodtime) * allWords.length).toFixed(0);
+        var accuracy = ((correctChars / totalChars) * 100).toFixed(0);
+        var expectwpm = 30;
+        var expectAccuracy = 80;
+        console.log("correct " + correctChars);
+        console.log("wrong " + wrongChars);
+        console.log("total " + totalChars);
+        console.log("periodtime " + periodtime);
+        console.log("wpm " + wpm);
+        $('#content').fadeOut('fast', function() {
+          $('#stat').show();
+          if (wpm > expectwpm && accuracy > expectAccuracy) {
+            $('#stat').prepend("<div id=\"statinfo\" class=\"win\">" + "ความแม่นยำ: " + accuracy + "%<br>จำนวนคำต่อนาที: " + wpm + "<br>เวลาที่ใช้: " + periodtime + " วินาที" + "</div>");
+            $('.next').show();
+            localStorage.setItem('lesson1', 'passed');
+          } else {
+            $('#stat').prepend("<div id=\"statinfo\" class=\"lose\">" + "ความแม่นยำ: " + accuracy + "%<br>จำนวนคำต่อนาที: " + wpm + "<br>เวลาที่ใช้: " + periodtime + " วินาที" + "</div>");
+            $('.retry').show();
+          }
+        });
+        $(window).off('keypress');
+        return;
+      }
+    });
+}
+});
 </script>
 </body>
 </html>
